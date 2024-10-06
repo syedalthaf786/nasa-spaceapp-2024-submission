@@ -1,0 +1,111 @@
+[
+    {
+      "image": "gifs/SATURN.gif",
+      "title": "SATURN",
+      "mass": "5.6834 × 10^23 kg",
+    "diameter": "116,460 km",
+    "distance_from_sun": "1.434 billion km",
+    "moons": "83 (including Titan)",
+      "link": "https://solarsystem.nasa.gov/planets/saturn/overview/"
+    },
+    {
+        "image": "gifs/MERCURY.gif",
+        "title": "MERCURY",
+        "mass": "3.3011 × 10^23 kg",
+    "diameter": "4,880 km",
+    "distance_from_sun": "57.9 million km",
+    "moons": "0",
+        "link": "https://solarsystem.nasa.gov/planets/mercury/overview/"
+      },
+    {
+      "image": "gifs/EARTH.gif",
+      "title": "EARTH",
+      "mass": "5.972 × 10^23 kg",
+    "diameter": " 12,742 km",
+    "distance_from_sun": "149.6 million km",
+    "moons": "1",
+      "text": "Some example text for the second card.",
+      "link": "https://solarsystem.nasa.gov/planets/earth/overview/"
+    },
+    {
+        "image": "gifs/MARS.gif",
+        "title": "MARS",
+        "mass": "6.4171 × 10^23 kg",
+    "diameter": " 12,742 km",
+    "distance_from_sun": "227.9 million km",
+    "moons": "2 (Phobos and Deimos)",
+        "text": "Some example text for the second card.",
+        "link": "https://solarsystem.nasa.gov/planets/mars/overview/"
+      },
+      {
+        "image": "gifs/JUPITER.gif",
+        "title": "JUPITER",
+        "mass": "1.8982× 10^23 kg",
+    "diameter": " 139,822 km",
+    "distance_from_sun": "778.5 million km",
+    "moons": "79 (including Ganymede, the largest moon in the solar system)",
+        "text": "Some example text for the second card.",
+        "link": "https://solarsystem.nasa.gov/planets/jupiter/overview/"
+      },
+      {
+        "image": "gifs/PLUTO.gif",
+        "title": "PLUTO",
+        "mass": "1.303 × 10^23 kg",
+    "diameter": " 2,377 km",
+    "distance_from_sun": "5.906 billion km (average)",
+    "moons": "5 (including Charon)",
+        "text": "Some example text for the second card.",
+        "link": "https://solarsystem.nasa.gov/planets/pluto/overview/"
+      },
+      {
+        "image": "gifs/MOON.gif",
+        "title": "MOON",
+        "mass": "5.972 × 10^23 kg",
+    "diameter": " 12,742 km",
+    "distance_from_sun": "149.6 million km",
+    "moons": "1",
+        "text": "Some example text for the second card.",
+        "link": "https://solarsystem.nasa.gov/planets/moon/overview/"
+      },
+    {
+      "image": "gifs/NEPTUNE.gif",
+      "title": "NEPTUNE",
+      "mass": "1.024 × 10^23 kg",
+    "diameter": " 12,742 km",
+    "distance_from_sun": "149.6 million km",
+    "moons": "14 (including Triton)",
+      "text": "Some example text for the third card.",
+      "link": "https://solarsystem.nasa.gov/planets/neptune/overview/"
+    },
+    {
+        "image": "gifs/SUN.gif",
+        "title": "SUN",
+        "mass": "5.972 × 10^23 kg",
+    "diameter": " 12,742 km",
+    "distance_from_sun": "149.6 million km",
+    "moons": "1",
+        "text": "Some example text for the second card.",
+        "link": "https://solarsystem.nasa.gov/planets/sun/overview/"
+      },
+      {
+        "image": "gifs/URANUS.gif",
+        "title": "URANUS",
+        "mass": "5.972 × 10^23 kg",
+    "diameter": " 50,724 km",
+    "distance_from_sun": "2.871 billion km",
+    "moons": "27 (including Titania and Oberon)",
+        "text": "Some example text for the second card.",
+        "link": "https://solarsystem.nasa.gov/planets/uranus/overview/"
+      },
+      {
+        "image": "gifs/VENUS.gif",
+        "title": "VENUS",
+        "mass": "5.972 × 10^23 kg",
+    "diameter": " 12,742 km",
+    "distance_from_sun": "149.6 million km",
+    "moons": "1",
+        "text": "Some example text for the second card.",
+        "link": "https://solarsystem.nasa.gov/planets/venus/overview/"
+      }
+      
+  ]

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEOs - 3D Visualization</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #3d-container {
+            width: 80%;
+            height: 100vh; /* Full height on all viewports */
+            margin: 0 auto; /* Center the container */
+        }
+        /* Styles for tablets and smaller devices (screen width up to 768px) */
+        @media (max-width: 768px) {
+            #3d-container {
+                height: 60vh; /* Reduce height for smaller screens */
+            }
+            footer {
+                font-size: 0.9rem; /* Slightly smaller text for footer */
+            }
+            .navbar-brand {
+                font-size: 1.2rem; /* Adjust navbar brand font size for smaller screens */
+            }
+            .navbar-nav .nav-link {
+                font-size: 0.9rem; /* Adjust font size of nav links for readability */
+            }
+        }
+
+        /* Styles for mobile phones (screen width up to 576px) */
+        @media (max-width: 576px) {
+            #3d-container {
+                height: 50vh; /* Further reduce height for mobile */
+            }
+            footer {
+                padding: 1rem 0; /* Adjust padding for footer on small screens */
+            }
+            .navbar-brand {
+                font-size: 1rem; /* Further reduce font size of the brand */
+            }
+            .navbar-nav .nav-link {
+                font-size: 0.8rem; /* Further reduce nav link font size */
+            }
+            .navbar-nav {
+                text-align: center; /* Center align the nav items on mobile */
+            }
+        }
+
+        .navbar {
+            position: relative;
+            top: 0px;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../src/img/logo.gif" alt="" width="50" height="50">NEos
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html" style="color:white">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html" style="color:rgb(226, 226, 226)">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="planet.html" style="color:rgb(226, 226, 226)">NEOs</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Models
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="solar.html">Solar Map</a></li>
+                            <li><a class="dropdown-item" href="neo.html">NEO Map</a></li>
+                            <li><a class="dropdown-item" href="main.html">Solar + NEO Map</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3D Visualization Container -->
+    <div id="3d-container"></div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3 position-absolute bottom-0 w-100">
+        <p>&copy; 2024 NEos. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap and Scripts -->
+    <script type="module" src="solar.js"></script>   
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="solar.js"></script>
+</body>
+</html>

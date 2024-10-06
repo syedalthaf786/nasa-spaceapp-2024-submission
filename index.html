@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEO Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .overlay-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Slight dark overlay for better readability */
+            z-index: 5;
+        }
+        @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+
+    .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        z-index: 10;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 10 solid white;
+        width: 100;
+        animation: typing 4.5s steps(50, end), blink 0.75s  1;
+    }
+    .overlay-text a{
+        color:rgb(255, 254, 254);
+        background-color: rgba(0, 30, 255, 0.829);
+        border-radius: 50px;
+        font-size: 20px;
+    }
+    #features img{
+        width:200px;
+        height:200px;
+    }
+    #features .feature-card:hover{
+        box-shadow: 0 4px 8px 0 rgba(13, 0, 255, 0.2), 0 6px 20px 0 rgba(30, 0, 253, 0.19);
+        transform: scale(1.05);
+    }
+    #about img:hover{
+        box-shadow: 0 4px 8px 0 rgba(13, 0, 255, 0.2), 0 6px 20px 0 rgba(30, 0, 253, 0.19);
+        transform: scale(1.05);
+    }
+    @keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.5s forwards;
+}
+
+.delay-150 {
+    animation-delay: 0.15s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+    </style>
+        <!-- Add this to your head section -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    
+</head>
+<body>
+
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="src/img/NeoLogo.gif" class="h-8" alt="Flowbite Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">NEO Tracker</span>
+        </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><a href="src/main.html">Explore NEOs</a></button>
+            <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                    <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="#about" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                </li>
+                <li>
+                    <a href="#features" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Features</a>
+                </li>
+                <li>
+                    <a href="#contact" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                </li>
+                <li>
+                    <a href="src/planet.html" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Neo Info</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Video Container with Overlay Text and Anchor Button -->
+<div class="video-container">
+    <video autoplay muted loop>
+        <source src="../src/videos/1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Dark overlay background -->
+    <div class="overlay-background"></div>
+
+    <!-- Text overlay with button -->
+    <div class="overlay-text">
+        <h1 class="text-6xl font-orbitron tracking-wide text-blue-200 animate-pulse">Explore the Universe</h1>
+        <p class="mt-4 text-xl text-gray-300">Discover planets, asteroids, and Near-Earth Objects with our interactive 3D experience</p>
+        <!-- Anchor button within text -->
+        <a href="src/main.html" class="inline-block mt-6 bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4">
+            Explore NEOs
+        </a>
+    </div>
+   
+</div>
+
+<!-- About Us Section -->
+<!-- About Us Section -->
+<section id="about" class="mt-0 p-8 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Left Side: Text Content -->
+        <div>
+            <h2 class="text-4xl font-bold mb-4">About Us</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                At <strong>NEO Tracker</strong>, we are dedicated to the exploration and understanding of Near-Earth Objects (NEOs) – asteroids and comets that come close to Earth’s orbit. Our mission is to provide an engaging platform for space enthusiasts, researchers, and educators to visualize, track, and learn about these celestial bodies in real-time.
+            </p>
+            <p class="text-lg leading-relaxed">
+                We strive to promote awareness about these objects, their potential impact on Earth, and the fascinating science behind their behavior. Join us on a journey to explore the vastness of our solar system, and understand how NEOs affect our planet.
+            </p>
+        </div>
+
+        <!-- Right Side: Image -->
+        <div class="flex justify-center">
+            <img src="src/img/about.jpg" alt="NEO Tracker" class="rounded-lg shadow-lg">
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<!-- Features Section -->
+<section id="features" class="p-8 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <div class="max-w-screen-lg mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-8">Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Feature 1 -->
+            <div class="feature-card bg-blue-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                <div class="flex justify-center">
+                    <!-- Image for Real-time Tracking -->
+                    <img src="src/img/realtime.webp" alt="Real-time Tracking" class="rounded-lg shadow-lg mb-4">
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Real-time Tracking</h3>
+                <p>Follow the movements of Near-Earth Objects as they orbit the Sun in real-time, providing up-to-date data on their position.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card bg-blue-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                <div class="flex justify-center">
+                    <!-- Image for Interactive 3D Visuals -->
+                    <img src="src/img/interative.webp" alt="Interactive 3D Visuals" class="rounded-lg shadow-lg mb-4">
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Interactive 3D Visuals</h3>
+                <p>Experience our interactive 3D visualizations of the solar system, allowing you to explore planetary orbits and NEO trajectories.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card bg-blue-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                <div class="flex justify-center">
+                    <!-- Image for Educational Insights -->
+                    <img src="src/img/education.webp" alt="Educational Insights" class="rounded-lg shadow-lg mb-4">
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Educational Insights</h3>
+                <p>Gain valuable insights into the nature of NEOs and their importance to planetary defense and space exploration.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Contributions Section -->
+
+  
+    <!-- <div id="contributors" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+        <h2 class="text-2xl font-semibold text-center mb-6 text-white">Our Contributors</h2>
+  </div> -->
+  
+  <section id="team" class="container mx-0 py-10 bg-black">
+    <h2 class="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white">
+        Our Contributors
+    </h2>
+    <div id="team-container" class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8 px-5">
+        <!-- Team Member 1 -->
+        <!-- Team Member 2 -->
+    </div>
+</section>
+  <!-- Contact Section -->
+  <section id="contact" class="p-8 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <div class="max-w-screen-lg mx-auto flex flex-col md:flex-row">
+        <!-- Left Side: Contact Form -->
+        <div class="flex-1 p-4 md:p-8">
+            <h2 class="text-4xl font-bold text-center mb-8 animate-fade-in">Get in Touch</h2>
+            <p class="text-lg leading-relaxed text-center mb-4 animate-fade-in delay-150">
+                If you have any questions, suggestions, or just want to say hello, feel free to reach out to us!
+            </p>
+            <form id="contactForm" action="#" method="POST" class="space-y-4 animate-fade-in delay-300">
+                <div class="flex flex-col md:flex-row md:space-x-4">
+                    <div class="relative w-full">
+                        <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <input type="text" placeholder="Your Name" class="p-2 pl-10 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" required id="name">
+                    </div>
+                    <div class="relative w-full">
+                        <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-black">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <input type="email" placeholder="Your Email" class="p-2 pl-10 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" required id="email">
+                    </div>
+                </div>
+                <div class="relative w-full">
+                    <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                        <i class="fas fa-comment"></i>
+                    </span>
+                    <textarea placeholder="Your Message" class="p-2 pl-10 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" rows="4" required id="message"> </textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-md transition-transform transform hover:scale-105">
+                    Send Message
+                </button>
+            </form>
+        </div>
+
+        <!-- Right Side: Video Animation -->
+        <div class="flex-1 p-4 md:p-8 flex justify-center items-center">
+            <video class="w-full h-auto rounded-md shadow-lg animate-fade-in" autoplay loop muted>
+                <source src="src/videos/3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</section>
+<section id="faq" class="p-8 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <div class="max-w-screen-lg mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <!-- Left Side: FAQ Description -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-4">Explore Our FAQ</h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    Got questions about Near-Earth Objects (NEOs)? We've got you covered. Find answers to the most common questions about tracking NEOs, understanding their trajectories, and more.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    If your question isn’t listed, feel free to interact with our KnowledgeBot for further assistance. Your curiosity is our mission!
+                </p>
+            </div>
+
+            <!-- Right Side: FAQ List -->
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-slate-950 shadow-md rounded-lg">
+                    <button class="faq-question flex justify-between items-center w-full p-4 text-left text-xl font-medium text-gray-800 dark:text-gray-100">
+                        What is NEO (Near-Earth Object)?
+                        <span class="transform transition-transform duration-300">&#9662;</span>
+                    </button>
+                    <div class="faq-answer hidden p-4 text-gray-600 dark:text-gray-300">
+                        A Near-Earth Object (NEO) is any small Solar System body whose orbit brings it close to Earth, such as asteroids and comets.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-slate-950 shadow-md rounded-lg">
+                    <button class="faq-question flex justify-between items-center w-full p-4 text-left text-xl font-medium text-gray-800 dark:text-gray-100">
+                        How does the NEO tracker work?
+                        <span class="transform transition-transform duration-300">&#9662;</span>
+                    </button>
+                    <div class="faq-answer hidden p-4 text-gray-600 dark:text-gray-300">
+                        Our NEO tracker fetches real-time data from NASA's API to display the position and trajectory of NEOs within our solar system.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-slate-950 shadow-md rounded-lg">
+                    <button class="faq-question flex justify-between items-center w-full p-4 text-left text-xl font-medium text-gray-800 dark:text-gray-100">
+                        Can I interact with the 3D solar system visualization?
+                        <span class="transform transition-transform duration-300">&#9662;</span>
+                    </button>
+                    <div class="faq-answer hidden p-4 text-gray-600 dark:text-gray-300">
+                        Yes, the 3D visualization allows you to zoom, rotate, and explore the NEOs and planets, providing an immersive experience.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-slate-950 shadow-md rounded-lg">
+                    <button class="faq-question flex justify-between items-center w-full p-4 text-left text-xl font-medium text-gray-800 dark:text-gray-100">
+                        How can I get updates about potential NEO impacts?
+                        <span class="transform transition-transform duration-300">&#9662;</span>
+                    </button>
+                    <div class="faq-answer hidden p-4 text-gray-600 dark:text-gray-300">
+                        Our system provides updated data about NEOs, including their potential impact probabilities, as published by NASA and other space agencies.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer class="bg-gray-800 text-gray-200 py-6">
+    <div class="max-w-screen-lg mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+            <p class="text-center md:text-left">&copy; 2024 Neo . All rights reserved.</p>
+        </div>
+        <div class="flex space-x-4">
+            <a href="https://www.facebook.com" target="_blank" class="hover:text-blue-500">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="hover:text-blue-400">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="hover:text-pink-500">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" class="hover:text-blue-600">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+</body>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("ABl-fI02sEt2cOk8E"); // Replace with your EmailJS user ID
+    })();
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Collect form data
+        const name = this.querySelector('#name').value;
+        const email = this.querySelector('#email').value;
+        const message = this.querySelector('#message').value;
+        const to_reply="8gmi@gamil.com"
+
+        // Send email
+        emailjs.send("service_0hyzxkk", "template_6t66zbl", {
+            name: name,
+            email: email,
+            message: message
+        })
+        .then(function(response) {
+            console.log("SUCCESS!", response.status, response.text);
+            Toastify({
+                text: "Your message has been sent successfully!",
+                duration: 3000,
+                gravity: "top", // `top` or `bottom`
+                position: 'center', // `left`, `center` or `right`
+                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+            }).showToast();
+        }, function(error) {
+            console.log("FAILED...", error);
+            Toastify({
+                text: "There was an error sending your message. Please try again.",
+                duration: 3000,
+                gravity: "top", // `top` or `bottom`
+                position: 'center', // `left`, `center` or `right`
+                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+            }).showToast();
+        });
+    });
+
+// Select all FAQ questions
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+// Add event listener to each FAQ question
+faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        // Toggle the visibility of the answer
+        const faqAnswer = question.nextElementSibling;
+        faqAnswer.classList.toggle('hidden');
+
+        // Rotate the arrow icon
+        const arrowIcon = question.querySelector('span');
+        arrowIcon.classList.toggle('rotate-180');
+    });
+});
+
+</script>
+
+<script src="src/conti.js"></script>
+</html>

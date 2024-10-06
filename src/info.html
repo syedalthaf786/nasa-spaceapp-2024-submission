@@ -1,0 +1,199 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Interesting Facts about Space</title>
+    <link rel="icon" type="image/x-icon" href="/src/img/favicon.ico" sizes="32x32">  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #000000;  
+            color: #f3ecec;  
+            margin: 0;  
+            padding: 20px;  
+        }  
+     
+  
+        h1 {  
+            text-align: center;  
+            color: #1f4a75;  
+        }  
+        .container {  
+            display: flex;  
+            flex-wrap: wrap;  
+            justify-content: center;  
+        }  
+        .fact {  
+            background-color: #0d0d0d;  
+            border-radius: 10px;  
+            padding: 20px;  
+            margin: 15px;  
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  
+            width: 250px;  
+            transition: transform 0.2s;  
+            cursor: pointer;  
+            
+        }  
+        .fact:hover {  
+            transform: scale(1.05);  
+            border:1px solid  #1f4a75;
+        }  
+        .fact h2 {  
+            color: #2980B9;  
+        }  
+        .description {  
+            display: none;  
+            margin-top: 10px;  
+            color: #f1efef;  
+        }  
+        button{
+            background-color:#2980B9;
+            color:rgb(214, 214, 214);
+            outline: none;
+            border:none;
+            padding:5px;
+            border-radius: 5px;
+            cursor:pointer;
+            font-weight: bold;
+            
+        }
+        .typing-container {
+    width: 100%;
+    overflow: hidden; /* Ensures the text stays within the container */
+    border-right: .15em solid #2980B9; /* The cursor effect */
+    white-space: nowrap; /* Keeps the text on one line */
+    margin: 0 auto; /* Centers the container */
+    letter-spacing: .15em; 
+    text-align: center;/* Spacing between characters */
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; 
+    }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color:#2980B9; }
+
+}
+
+            </style>
+</head>  
+<body>  
+
+    <div class="typing-container">
+        <p class="typing-text"><h1>Interesting Facts about the Solar Planets</h1> </p>
+    </div>
+     
+    <div class="container">  
+        <div class="fact" onclick="toggleDescription(1)">  
+            <h2>Mercury</h2> 
+        
+            <p class="description" id="desc1">
+                <b> Temperatures:</b> Mercury experiences the most extreme temperature fluctuations in the solar system, ranging from about -173°C at night to 427°C during the day.
+            </p><b>No Atmosphere:</b> It has a very thin atmosphere, which means it cannot retain heat and has no weather.</p>  
+            <button class="show-more">Show More</button>
+        </div>  
+        <div class="fact" onclick="toggleDescription(2)">  
+            <h2>Venus</h2>  
+          
+            <p class="description" id="desc2">
+                <b> Hottest Planet:</b> Venus is the hottest planet in our solar system, with surface temperatures around 465°C (869°F) due to a thick atmosphere of carbon dioxide.
+            </p><b>Retrograde Rotation:</b> It rotates on its axis backward compared to most planets, meaning the Sun rises in the west and sets in the east</p>  
+            <button class="show-more">Show More</button>
+        </div>  
+        <div class="fact" onclick="toggleDescription(3)">  
+            <h2>Earth</h2>
+            <p class="description" id="desc3">
+                <b>Water World:</b> About 71% of Earth's surface is covered with water, making it unique in our solar system.
+            </p><b>Life-Supporting:</b> Earth is the only known planet to support life, owing to its protective atmosphere and presence of liquid water.</p>  
+            <button class="show-more">Show More</button>
+        </div>  
+        <div class="fact" onclick="toggleDescription(4)">  
+            <h2>Mars</h2> 
+            <p class="description" id="desc4">
+                <b>The Red Planet:</b> Mars is known as the Red Planet because of its iron oxide (rust) surface, which gives it a reddish appearance.
+            </p><b>Largest Volcano:</b> It is home to Olympus Mons, the largest volcano in the solar system, which is about 13.6 miles (22 km) high.</p>  
+            <button class="show-more">Show More</button>
+        </div>  
+        <div class="fact" onclick="toggleDescription(5)">  
+            <h2>Jupiter</h2>
+           
+            <p class="description" id="desc5">
+                <b>Largest Planet:</b>Jupiter is the largest planet in our solar system, more than 11 times the diameter of Earth.
+            </p> <b>Great Red Spot:</b> It has a giant storm known as the Great Red Spot, which is large enough to fit two or three Earths.</p>  
+            <button class="show-more">Show More</button>
+        </div>  
+        <div class="fact" onclick="toggleDescription(6)">  
+            <h2>Saturn</h2> 
+           
+            <p class="description" id="desc6">
+                <b> Beautiful Rings:</b> Saturn is famous for its stunning ring system, which is made up of ice and rock particles.
+            </p> <b>Lightweight:</b> Saturn is so light that it would float if placed in water; its density is lower than that of water.</p> 
+            <button class="show-more">Show More</button> 
+        </div>  
+        <div class="fact" onclick="toggleDescription(7)">  
+            <h2>Uranus</h2>
+          
+            <p class="description" id="desc7">
+                <b> Tilted Axis:</b> Uranus has a unique tilt of about 98 degrees, causing it to rotate on its side.
+            </p><b>Ice Giant:</b> It is classified as an ice giant, with a composition that includes water, ammonia, and methane in its atmosphere.</p>  
+            <button class="show-more">Show More</button>
+        </div>  
+        <div class="fact" onclick="toggleDescription(8)">  
+            <h2>Neptune</h2> 
+          
+            <p class="description" id="desc8">
+                <b>Farthest Planet:</b> Neptune is the farthest planet from the Sun and is known for its deep blue color due to methane in its atmosphere.
+            </p><b>Strong Winds:</b> It has the fastest winds in the solar system, reaching speeds of over 2,100 kilometers per hour (1,300 miles per hour).</p>  
+            <button class="show-more">Show More</button>
+        </div>  
+        <div class="fact" onclick="toggleDescription(9)">  
+            <h2>The Moon</h2>  
+            <p class="description" id="desc9">
+                <b>Tidal Effects:</b> The Moon's gravitational pull is responsible for the tides on Earth.
+            </p><b>No Atmosphere:</b> It has a very thin atmosphere, making it unable to support life and subjecting its surface to extreme temperatures.</p>  
+            <button class="show-more">Show More</button>
+        </div>  
+        <div class="fact" onclick="toggleDescription(10)">  
+            <h2>The Sun</h2> 
+            <p class="description" id="desc10">
+                <b> At the Center:</b> The Sun makes up about 99.86% of the mass of our solar system and is around 4.6 billion years old.
+            </p>  <p><b>Nuclear Fusion:</b>  It generates energy through nuclear fusion, converting hydrogen into helium in its core.</p> 
+                <button class="show-more">Show More</button>
+        </div>  
+        <div class="fact" onclick="toggleDescription(11)">  
+           <h2>Comets</h2>
+            <p class="description" id="desc11">
+                <b>Bodies:</b> Comets are composed of ice, dust, and rocky material, and are often referred to as "dirty snowballs.
+                <p><b>Tail Formation:</b> When comets approach the Sun, they develop vast tails made of gas and dust that can extend millions of kilometers due to solar wind.</p> </p> 
+                <button class="show-more">Show More</button>
+        </div>  
+    </div>  
+
+    <script>  
+        function toggleDescription(num) {
+    const desc = document.getElementById(`desc${num}`);
+    const showMoreButton = document.querySelector(`.fact:nth-child(${num}) button.show-more`);
+    if (desc.style.display === "none" || desc.style.display === "") {
+        desc.style.display = "block";
+        showMoreButton.textContent = "Show Less";
+    } else {
+        desc.style.display = "none";
+        showMoreButton.textContent = "Show More";
+    }
+}  
+    </script>  
+    <hr>
+ <footer class="footer mt-auto py-2 bg-dark text-white ">
+    <div class="container align-content-center justify-content-center d-flex">
+      <p >&copy; 2024 NEos. All rights reserved.</p>
+    </div>
+  </footer>
+</body>  
+</html>

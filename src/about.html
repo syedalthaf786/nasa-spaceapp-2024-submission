@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Solar System Visualization</title>
+    <link rel="icon" type="image/x-icon" href="/src/img/favicon.ico" sizes="32x32">
+    <style>  
+        /* Set the carousel size */ 
+         
+        #videoCarousel {  
+            height: 400px;  
+            width: 100%;  
+            overflow: hidden; /* Hide overflow */  
+        }  
+        .card-img-top:hover{
+            transform: scale(1.02);
+        }
+        .card .img-fluid {
+            max-width: 100%;
+            height: 220px;
+            
+        }
+        
+        .card-img-top {
+    width: 100%; /* Make the image take the full width of the card */
+    height: 200px; /* Set a fixed height for all images */
+    object-fit: cover; /* Crop the image to cover the specified dimensions */
+    border-top-left-radius: 5px; /* Optional: rounded corners */
+    border-top-right-radius: 5px; /* Optional: rounded corners */
+}
+        /* Ensure videos fit within the carousel */  
+        .carousel-item video {  
+            height: 100%; /* Set height to 100% of the carousel */  
+            width: 100%; /* Set width to 100% of the carousel */  
+            object-fit: cover; /* Maintain aspect ratio and cover the area */  
+        }  
+        .card-body{
+          background: rgb(14, 14, 34);
+        
+        }
+        .title {
+    margin-bottom: var(--bs-card-title-spacer-y);
+    color: white;
+        }
+        .card-text{
+          color:white;
+        }
+      </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-black">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../src/img/logo.gif" alt="" width="50" height="50">NEos
+              </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" style="color:white">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="planet.html" style="color:white">NEOs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Content -->
+    
+    
+    <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel">  
+        <!-- Indicators/Dots -->  
+        <div class="carousel-indicators">  
+          <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>  
+          <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>  
+          <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>  
+        </div>  
+      
+        <!-- Carousel Items -->  
+        <div class="carousel-inner">  
+          <!-- First Slide -->  
+          <div class="carousel-item active">  
+            <div class="ratio ratio-16x9">  
+              <video autoplay loop>  
+                <source src="videos/1.mp4" type="video/mp4">  
+                Your browser does not support the video tag.  
+              </video>  
+            </div>  
+          </div>  
+          <!-- Second Slide -->  
+          <div class="carousel-item">  
+            <div class="ratio ratio-16x9">  
+              <video autoplay loop>  
+                <source src="videos/2.mp4" type="video/mp4">  
+                Your browser does not support the video tag.  
+              </video>  
+            </div>  
+          </div>  
+          <!-- Third Slide -->  
+          <div class="carousel-item">  
+            <div class="ratio ratio-16x9">  
+              <video autoplay loop>  
+                <source src="videos/3.mp4" type="video/mp4">  
+                Your browser does not support the video tag.  
+              </video>  
+            </div>  
+          </div>  
+        </div>  
+      
+        <!-- Carousel Controls -->  
+        <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">  
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>  
+          <span class="visually-hidden">Previous</span>  
+        </button>  
+        <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">  
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>  
+          <span class="visually-hidden">Next</span>  
+        </button>  
+    </div> 
+    <br>  
+    
+    <div class="container my-4">
+      <div id="cards-container" class="row">
+        <!-- Cards will be dynamically injected here -->
+      </div>
+    </div>
+  
+    <script>
+      // Fetch the data for the cards
+      fetch('card.json')
+        .then(response => response.json())
+        .then(data => {
+          const cardsContainer = document.getElementById('cards-container');
+          data.forEach(card => {
+            // Create a card structure
+            const cardHTML = `
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img src="${card.image}" class="card-img-top" alt="${card.title}">
+                  <div class="card-body">
+                    <h5 class="card-title title">${card.title}</h5>
+                    <p class="card-text"><strong>Mass:</strong> ${card.mass}</p>
+                  <p class="card-text"><strong>Diameter:</strong> ${card.diameter}</p>
+                  <p class="card-text"><strong>Distance from Sun:</strong> ${card.distance_from_sun}</p>
+                  <p class="card-text"><strong>Moons:</strong> ${card.moons}</p>
+                    <a href="${card.link}" target='_blank' class="btn btn-primary">Click For More Details</a>
+                  </div>
+                </div>
+              </div>
+            `;
+            // Append the card to the container
+            cardsContainer.innerHTML += cardHTML;
+          });
+        })
+        .catch(error => console.error('Error fetching card data:', error));
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+     <footer class="footer mt-auto py-2 bg-dark text-white ">
+      <div class="container align-content-center justify-content-center d-flex">
+        <p >&copy; 2024 NEos. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+[
+    {
+        "name": "Sumit Sachan",
+        "linkedin": "https://www.linkedin.com/in/sumit-sachan-030254223",
+        "github": "https://github.com/sumit718",
+        "email": "sumitsachan995@gmail.com",
+        "phone": "+919561978931",
+        "image": "src/img/con2.jpg",
+        "desc":"Team Lead , Developer",
+        "info":"I’m Sumit Sachan, and as the team leader, I coordinated our efforts during the hackathon. I ensured smooth collaboration and guided the team toward our vision. Now, let’s meet the talented members of our team who made this project possible. First up is Vaibhav Yadav, our Co-lead and Data Analyst."
+      },
+      {
+        "name": "Vaibhav Yadav",
+        "linkedin": "https://www.linkedin.com/in/vaibhav-yadav-769a35268/",
+        "github": "https://github.com/mikki25",
+        "email": "vaibhav.yadav.ee.2021@miet.ac.in",
+        "phone": "+917668024141",
+        "image": "src/img/con3.jpg",
+        "desc":"Co-lead , Software Developer",
+"info":"I’m Vaibhav Yadav, and as the Data Analyst, I was responsible for gathering, cleaning, and analyzing astronomical data related to the positions and trajectories of Near-Earth Objects. I worked closely with the team to ensure accurate representation of planetary and object positions in our web app. I was excited to contribute because I have always been fascinated by the intersection of data and space exploration. This project allowed me to use my data analysis skills to contribute to a meaningful solution that can help people better understand the dynamics of our solar system."
+      },
+   
+    {
+      "name": "S Althaf",
+      "linkedin": "https://www.linkedin.com/in/althaf-shaik-802b04258",
+      "github": "https://github.com/syedalthaf786",
+      "email": "syedalthaf760@gmail.com",
+      "phone": "+916305010479",
+      "image": "src/img/con1.jpg",
+      "desc":"Full Stack Developer",
+"info":"I’m S Altaf, and I focused on the backend development of the Orrery Web App. I developed the server-side logic and APIs that integrate real-time astronomical data, ensuring that the celestial models in the web app are dynamically updated with current information. This project was especially rewarding because it combines technology with science to create a learning tool that can have a tangible impact on education and space research."
+    },
+      {
+        "name": "G Prabhas",
+        "linkedin": "https://www.linkedin.com/in/gampala-prabhas-b2001722a",
+        "github": "https://github.com/",
+        "email": "prabas.gampala13@gmail.com",
+        "phone": "+1234567890",
+        "image": "src/img/con4.jpg",
+        "desc":"Full Stack Developer",
+"info":"I’m G Prabhas. As the Frontend Developer, I was responsible for designing the user interface and ensuring the app provides a seamless user experience. I focused on making the Orrery app interactive and visually engaging, so users could easily navigate through the solar system and view various celestial bodies. I’m particularly passionate about creating intuitive educational tools, and I’m excited to see how this project can help users explore space in a more immersive way."
+        
+
+      },
+      {
+        "name": "Tanmay Kadwe",
+        "linkedin": "https://www.linkedin.com/in/tanmay-kadwe-a983b1272",
+        "github": "https://github.com/TANMAY6317",
+        "email": "tanmayk1703@gmail.com",
+        "phone": "+918767777534",
+        "image": "src/img/con5.jpg",
+        "desc":"Designer",
+"info":"Tanmay Kadwe. As the Designer, I worked on designing the user interface and user experience for the Orrery Web App. I made sure the visual elements and interactions were smooth, aesthetically pleasing, and user-friendly. My focus was on creating a design that’s not only functional but also captures the wonder of space exploration. I'm excited to see how our project will inspire curiosity and learning in its users."
+      }
+  ]
